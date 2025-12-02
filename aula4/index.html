@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+se
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+</style>
+<body>
+    <section>
+    <form>
+        <label for="regiao">Região</label>
+        <select id="regiao">
+            <option value="">Selecione a Região</option>
+            <option value="centroOeste">Centro-Oeste</option>
+            <option value="nordeste">Nordeste</option>
+            <option value="norte">Norte</option>
+            <option value="sudeste">Sudeste</option>
+            <option value="sul">Sul</option>
+
+        </select>
+
+        <label for="estados">Estado</label>
+        <select name="estados">
+            <option value="">Selecione um estado</option>
+
+            <option value="AC" class="norte">Acre (AC)</option>
+            <option value="AL" class="nordeste">Alagoas (AL)</option>
+            <option value="AP" class="norte">Amapá (AP)</option>
+            <option value="AM" class="norte">Amazonas (AM)</option>
+            <option value="BA" class="nordeste">Bahia (BA)</option>
+            <option value="CE" class="nordeste">Ceará (CE)</option>
+            <option value="DF" class="centroOeste">Distrito Federal (DF)</option>
+            <option value="ES" class="sudeste">Espírito Santo (ES)</option>
+            <option value="GO" class="centroOeste">Goiás (GO)</option>
+            <option value="MA" class="nordeste">Maranhão (MA)</option>
+            <option value="MT" class="centroOeste">Mato Grosso (MT)</option>
+            <option value="MS" class="centroOeste">Mato Grosso do Sul (MS)</option>
+            <option value="MG" class="sudeste">Minas Gerais (MG)</option>
+            <option value="PA" class="norte">Pará (PA)</option>
+            <option value="PB" class="nordeste">Paraíba (PB)</option>
+            <option value="PR" class="sul">Paraná (PR)</option>
+            <option value="PE" class="nordeste">Pernambuco (PE)</option>
+            <option value="PI" class="nordeste">Piauí (PI)</option>
+            <option value="RJ" class="sudeste">Rio de Janeiro (RJ)</option>
+            <option value="RN" class="nordeste">Rio Grande do Norte (RN)</option>
+            <option value="RS" class="sul">Rio Grande do Sul (RS)</option>
+            <option value="RO" class="norte">Rondônia (RO)</option>
+            <option value="RR" class="norte">Roraima (RR)</option>
+            <option value="SC" class="sul">Santa Catarina (SC)</option>
+            <option value="SP" class="sudeste">São Paulo (SP)</option>
+            <option value="SE" class="nordeste">Sergipe (SE)</option>
+            <option value="TO" class="norte">Tocantins (TO)</option>
+
+        </select>
+
+    </form>
+</section>
+
+</body>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const selectEstados = document.querySelector('select[name="estados"]')
+        const opcoes = selectEstados.querySelectorAll("option")
+
+        for (let i = 1; i < opcoes.length; i++) {
+            opcoes[i].style.display = "none"
+        }
+
+        const selectRegiao = document.querySelector("#regiao");
+
+        selectRegiao.addEventListener("change", function () {
+
+            const regiaoEscolhida = this.value
+
+
+            for (let i = 1; i < opcoes.length; i++) {
+                opcoes[i].style.display = "none";
+            }
+
+
+            if (regiaoEscolhida === "") return
+
+
+            const estadosDaRegiao = selectEstados.querySelectorAll("." + regiaoEscolhida)
+
+            estadosDaRegiao.forEach(function (estado) {
+                estado.style.display = "block"
+            })
+
+
+            selectEstados.value = ""
+        })
+    })
+
+
+</script>
+
+</html>
