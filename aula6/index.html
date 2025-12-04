@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        width: 1000px;
+    
+    }
+
+
+</style>
+
+<body onload="carregarBanner()">
+
+    <section class="banner">
+
+    </section>
+
+
+</body>
+<script>
+
+const banner = document.querySelector('.banner');
+let quant = 4;
+
+function carregarBanner() {
+    banner.innerHTML = '<img src="IMG/banner' + quant + '.jpg">';
+    quant--;
+
+    setTimeout(() => passarImg(quant), 4000);
+}
+
+function passarImg(x) {
+    banner.innerHTML = '<img src="IMG/banner' + x + '.jpg">';
+    x--;
+
+    if (x === 0) {
+        quant = 4; // reinicia
+        setTimeout(carregarBanner, 4000);
+    } else {
+        setTimeout(() => passarImg(x), 4000);
+    }
+}
+
+carregarBanner();
+
+
+
+</script>
+
+</html>
