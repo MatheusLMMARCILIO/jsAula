@@ -4,14 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>menu</title>
+    <title>dom</title>
 </head>
-<style>
+
+<body id="page">
 
 
-</style>
-<body>
 
 </body>
+<script>
+
+const page = document.getElementById("page")
+
+const divDom = document.createElement('div')
+divDom.classList.add("content-div")
+divDom.id = 'first-div'
+
+const pDom = document.createElement("p")
+pDom.innerText = 'texto do p'
+
+divDom.appendChild(pDom)
+page.appendChild(divDom)
+
+const textDom = ['texto do span', 'outro texto']
+
+
+textDom.forEach(text => {
+    
+const ulDom = document.createElement('ul')
+const lidom = document.createElement('li')
+const spanDom = document.createElement('span')
+
+
+lidom.innerText = 'text '
+
+spanDom.innerText = text
+
+spanDom.classList.add('numeral-name')
+
+spanDom.style.color = "#f00"
+
+divDom.appendChild(ulDom)
+ulDom.appendChild(lidom)
+lidom.appendChild(spanDom)
+
+});
+
+const divDomSecond = document.createElement('div')
+divDomSecond.classList.add('content-div')
+divDomSecond.id = 'second-div'
+
+const pdomSecond = document.createElement('p')
+pdomSecond.innerText = "text second div"
+
+const aDom = document.createElement('a')
+const attA = document.createAttribute('style')
+
+
+const emDom = document.createElement("em")
+emDom.innerText = 'Text em'
+
+page.appendChild(divDomSecond)
+divDomSecond.appendChild(pdomSecond)
+pdomSecond.appendChild
+
+</script>
 
 </html>
